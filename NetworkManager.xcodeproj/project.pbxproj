@@ -74,21 +74,21 @@
 		479FDE3E20F9D79E00BF9D28 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				479FDE4720F9D7E900BF9D28 /* Network */,
+				479FDE4720F9D7E900BF9D28 /* Networks */,
 				479FDE3F20F9D79E00BF9D28 /* NetworkManager.h */,
 				479FDE4020F9D79E00BF9D28 /* Info.plist */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
 		};
-		479FDE4720F9D7E900BF9D28 /* Network */ = {
+		479FDE4720F9D7E900BF9D28 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
 				479FDE4E20F9DEC200BF9D28 /* ParseManager.swift */,
 				479FDE5320FA019100BF9D28 /* NetworkHelper */,
 				479FDE5020FA014F00BF9D28 /* PostHelper */,
 			);
-			path = Network;
+			path = Networks;
 			sourceTree = "<group>";
 		};
 		479FDE5020FA014F00BF9D28 /* PostHelper */ = {
