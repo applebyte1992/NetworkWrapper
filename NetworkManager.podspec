@@ -3,7 +3,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "NetworkManager"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "Network layer proposed for all dinifi products"
 
   s.description  = "NetworkManager helps user to interact with Network Requests and APIs"

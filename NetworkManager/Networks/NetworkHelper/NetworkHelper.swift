@@ -29,6 +29,13 @@ class NetworkHelper: NSObject {
         NetworkHelper.enableLogs = enable
     }
     
+    /// Sends Post Request
+    ///
+    /// - Parameters:
+    ///   - action: Endpoint for API /example/id
+    ///   - paramters: paramters for request - Must implement codeable
+    ///   - encoding: Passed any encoding if needed default is JSONEncoding.default
+    ///   - completionBlock: Get reponse in type which you expect or gets error
     public func sendPOST<T:Codable>(action : String , paramters : T , encoding : ParameterEncoding = JSONEncoding.default , completionBlock : @escaping (T? , Error?) -> ()) {
         
         guard let params = ParseManager.asDictionary(param: paramters) else {
@@ -36,11 +43,18 @@ class NetworkHelper: NSObject {
             return
         }
         
-        self.postHelper.POST(action: "", paramters: params) { (data, error) in
+        self.postHelper.POST(action: action, paramters: params) { (data, error) in
             completionBlock(ParseManager.parseResponse(data: data, response: T.self) , error)
         }
     }
     
+    /// Sends Get Request
+    ///
+    /// - Parameters:
+    ///   - action: Endpoint for API /example/id
+    ///   - paramters: paramters for request - Must implement codeable
+    ///   - encoding: Passed any encoding if needed default is JSONEncoding.default
+    ///   - completionBlock: Get reponse in type which you expect or gets error
     public func sendGET<T:Codable>(action : String , paramters : T? , encoding : ParameterEncoding = JSONEncoding.default , completionBlock : @escaping (T? , Error?) -> ()) {
         
         guard let params = ParseManager.asDictionary(param: paramters) else {
@@ -48,7 +62,7 @@ class NetworkHelper: NSObject {
             return
         }
         
-        self.postHelper.GET(action: "", paramters: params) { (data, error) in
+        self.postHelper.GET(action: action, paramters: params) { (data, error) in
             completionBlock(ParseManager.parseResponse(data: data, response: T.self) , error)
         }
     }
