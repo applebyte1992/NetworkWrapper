@@ -13,6 +13,7 @@
 		479FDE4D20F9DBD400BF9D28 /* PostUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479FDE4C20F9DBD400BF9D28 /* PostUtils.swift */; };
 		479FDE4F20F9DEC200BF9D28 /* ParseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479FDE4E20F9DEC200BF9D28 /* ParseManager.swift */; };
 		479FDE5220FA016D00BF9D28 /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479FDE5120FA016D00BF9D28 /* NetworkUtils.swift */; };
+		479FDE5720FC9D4000BF9D28 /* NetworkManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 479FDE5620FC9D4000BF9D28 /* NetworkManager.podspec */; };
 		6E3AD8AE530CB00A5AC4C7FC /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 244F52C5618CCE9FADC1931D /* Pods_NetworkManager.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +27,7 @@
 		479FDE4C20F9DBD400BF9D28 /* PostUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostUtils.swift; sourceTree = "<group>"; };
 		479FDE4E20F9DEC200BF9D28 /* ParseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseManager.swift; sourceTree = "<group>"; };
 		479FDE5120FA016D00BF9D28 /* NetworkUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkUtils.swift; sourceTree = "<group>"; };
+		479FDE5620FC9D4000BF9D28 /* NetworkManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = NetworkManager.podspec; sourceTree = "<group>"; };
 		56AD62B68E8073B55F1D9CEB /* Pods-NetworkManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.debug.xcconfig"; sourceTree = "<group>"; };
 		8EA4BF1B406EAC5415F56B48 /* Pods-NetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,6 +55,7 @@
 		479FDE3220F9D79E00BF9D28 = {
 			isa = PBXGroup;
 			children = (
+				479FDE5620FC9D4000BF9D28 /* NetworkManager.podspec */,
 				479FDE3E20F9D79E00BF9D28 /* NetworkManager */,
 				479FDE3D20F9D79E00BF9D28 /* Products */,
 				9516DD65D41E7A9484CB187C /* Pods */,
@@ -185,6 +188,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				479FDE5720FC9D4000BF9D28 /* NetworkManager.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
