@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class NetworkHelper: NSObject {
+public class NetworkHelper: NSObject {
     
     private var postHelper      : PostHelper!
     static var enableLogs       : Bool = true
@@ -17,7 +17,7 @@ class NetworkHelper: NSObject {
     public typealias failureBlock       = ((Error?,AnyObject?) -> Void)
     public typealias finishedBlock      = ((Bool) -> Void)
     
-    required init(baseURL : String , requestHeader :[String:String]?) {
+    required public init(baseURL : String , requestHeader :[String:String]?) {
         postHelper = PostHelper(baseURL: baseURL, requestHeaders: requestHeader)
     }
     
