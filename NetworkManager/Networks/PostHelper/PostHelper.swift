@@ -33,6 +33,9 @@ class PostHelper: NSObject {
     func updateAuthorizationToken(token : String) {
         self.authorizationToken = token
     }
+    func setBaseURL(url : String) {
+        self.baseURL = url
+    }
     
     //MARK:- Alamofire Get/POST
     

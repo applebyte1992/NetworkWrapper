@@ -21,8 +21,12 @@ public class NetworkHelper: NSObject {
         postHelper = PostHelper(baseURL: baseURL, requestHeaders: requestHeader)
     }
     
-    func updateAuthorizationToken(token : String) {
+    public func updateAuthorizationToken(token : String) {
         self.postHelper.updateAuthorizationToken(token: token)
+    }
+    
+    public func setBaseURL(url : String) {
+        self.postHelper.setBaseURL(url: url)
     }
     
     /// Set Paramters and response loging enabled / Disabled. Default is enable
