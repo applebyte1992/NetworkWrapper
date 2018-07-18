@@ -15,4 +15,10 @@ extension NetworkHelper {
         let error = NSError.init(domain: "com.dinifi.BaseService", code: 9002, userInfo: [NSLocalizedDescriptionKey : parsingError])
         return error
     }
+    func getUnknowError()->Error{
+        
+        let parsingError = "Unknow error"
+        let error = NSError.init(domain: "com.teo.BaseService", code: 9003, userInfo: [NSLocalizedDescriptionKey : parsingError])
+        return error
+    }
 }

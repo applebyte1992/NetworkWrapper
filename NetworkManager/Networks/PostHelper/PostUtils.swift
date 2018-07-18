@@ -7,10 +7,6 @@
 //
 
 import Foundation
-
-
-
-
 // MARK:- Logs
 extension PostHelper {
     
@@ -29,6 +25,7 @@ extension PostHelper {
             
         }
     }
+    
 }
 
 // MARK:- Error Handling
@@ -39,7 +36,21 @@ extension PostHelper {
         let error = NSError.init(domain: "com.teo.NetworkManager", code: 9001, userInfo: [NSLocalizedDescriptionKey : parsingError])
         return error
     }
+    
+    func getError(data : Data?)->AnyObject? {
+        
+        if let responseData = data {
+            do {
+                let json = try JSONSerialization.jsonObject(with: responseData, options: .mutableContainers) as? [String:AnyObject]
+                return json as AnyObject
+            } catch {
+                print("Invalid JSON")
+            }
+        }
+        return nil
+    }
 }
+
 
 
 

@@ -10,12 +10,12 @@ import UIKit
 import Alamofire
 
 class PostHelper: NSObject {
-
+    
     var baseURL             : String            = ""
     var requestHeaders      : [String:String]?  = [:]
     var authorizationToken  : String            = ""
     private var manager     : SessionManager
-    typealias completionBlock       = ((Data?, Error?) -> Void)
+    typealias completionBlock       = ((Data?, Error?,AnyObject?) -> Void)
     
     override init() {
         let configuration                           = URLSessionConfiguration.default
@@ -36,7 +36,7 @@ class PostHelper: NSObject {
     
     //MARK:- Alamofire Get/POST
     
-    func POST(action : String , paramters : [String:AnyObject] , encoding : ParameterEncoding = JSONEncoding.default , completionBlock : @escaping completionBlock) {
+    func POST(action : String , paramters : [String:AnyObject] , encoding : ParameterEncoding, completionBlock : @escaping completionBlock) {
         
         
         self.printRequest(action: action, params: paramters)
@@ -52,28 +52,32 @@ class PostHelper: NSObject {
     
     func executeRequest(method : HTTPMethod , action : String , params : [String:AnyObject]?,encoding : ParameterEncoding,apiHeader : [String:String], completionBlock : @escaping completionBlock) {
         
-        self.updateHeaderToken(header: apiHeader)
+        let headers = self.updateHeaderToken(header: apiHeader)
         
         let url = self.baseURL + action
-        manager.request(url,method: method, parameters: params, encoding: encoding, headers: apiHeader).validate().responseJSON { (response) in
+        
+        manager.request(url,method: method, parameters: params, encoding: encoding, headers: headers).validate().responseJSON { (response) in
+            
+            self.printJSON(data: response.data)
+            
             guard response.result.isSuccess else  {
-                completionBlock(nil,response.result.error)
+                completionBlock(nil,response.result.error,self.getError(data: response.data))
                 return
             }
             guard let responseData = response.data else {
-                completionBlock(nil , self.getParsingError())
+                completionBlock(nil , self.getParsingError(),nil)
                 return
             }
-            self.printJSON(data: responseData)
-            completionBlock(responseData, nil)
+            completionBlock(responseData, nil,nil)
         }
     }
     
-    func updateHeaderToken(header : [String:String]){
+    func updateHeaderToken(header : [String:String])->[String:String]{
         var headers = header
         if self.authorizationToken != "" {
             headers["Authorization"] = "Bearer " + self.authorizationToken
         }
+        return headers
     }
     
 }
