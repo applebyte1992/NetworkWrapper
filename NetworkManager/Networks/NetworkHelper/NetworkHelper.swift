@@ -58,17 +58,12 @@ public class NetworkHelper: NSObject {
     ///
     /// - Parameters:
     ///   - action: Endpoint for API /example/id
-    ///   - paramters: paramters for request - Must implement codeable
     ///   - encoding: Passed any encoding if needed default is JSONEncoding.default
     ///   - completionBlock: Get reponse in type which you expect or gets error
-    public func sendGET<T:Codable , U:Codable>(action : String , paramters : T , encoding : ParameterEncoding = JSONEncoding.default , successBlock : @escaping (U) -> () , failure : @escaping failureBlock, finished : @escaping finishedBlock) {
-        
-        guard let params = ParseManager.asDictionary(param: paramters) else {
-            self.handleInvalidParams(failure: failure, finished: finished)
-            return
-        }
-        self.postHelper.GET(action: action, paramters: params) { (data, error, any) in
-           self.handleAPIResponse(data: data, error: error, errorData: any, successBlock: successBlock, failure: failure, finished: finished)
+    public func sendGET<U:Codable>(action : String , encoding : ParameterEncoding = JSONEncoding.default , successBlock : @escaping (U) -> () , failure : @escaping failureBlock, finished : @escaping finishedBlock) {
+
+        self.postHelper.GET(action: action, paramters: nil) { (data, error, any) in
+            self.handleAPIResponse(data: data, error: error, errorData: any, successBlock: successBlock, failure: failure, finished: finished)
         }
     }
     

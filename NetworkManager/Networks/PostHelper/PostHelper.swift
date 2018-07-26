@@ -78,6 +78,7 @@ class PostHelper: NSObject {
     func updateHeaderToken(header : [String:String])->[String:String]{
         var headers = header
         if self.authorizationToken != "" {
+            headers.removeAll()
             headers["Authorization"] = "Bearer " + self.authorizationToken
         }
         return headers
