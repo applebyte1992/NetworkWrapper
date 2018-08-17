@@ -53,6 +53,13 @@ class PostHelper: NSObject {
         self.executeRequest(method: .get, action: action, params: paramters, encoding: JSONEncoding.default, apiHeader: self.requestHeaders!, completionBlock: completionBlock)
     }
     
+    func PUT(action : String , paramters : [String:AnyObject]?, completionBlock : @escaping completionBlock) {
+        
+        self.printRequest(action: action, params: paramters)
+        self.executeRequest(method: .put, action: action, params: paramters, encoding: JSONEncoding.default, apiHeader: self.requestHeaders!, completionBlock: completionBlock)
+    }
+    
+    
     func executeRequest(method : HTTPMethod , action : String , params : [String:AnyObject]?,encoding : ParameterEncoding,apiHeader : [String:String], completionBlock : @escaping completionBlock) {
         
         let headers = self.updateHeaderToken(header: apiHeader)
