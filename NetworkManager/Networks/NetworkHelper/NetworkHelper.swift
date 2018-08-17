@@ -67,6 +67,18 @@ public class NetworkHelper: NSObject {
         }
     }
     
+    /// Sends PUT Request
+    ///
+    /// - Parameters:
+    ///   - action: Endpoint for API /example/id
+    ///   - encoding: Passed any encoding if needed default is JSONEncoding.default
+    ///   - completionBlock: Get reponse in type which you expect or gets error
+    public func sendPUT<U:Codable>(action : String , encoding : ParameterEncoding = JSONEncoding.default , successBlock : @escaping (U) -> () , failure : @escaping failureBlock, finished : @escaping finishedBlock) {
+        
+        self.postHelper.PUT(action: action, paramters: nil) { (data, error, any) in
+            self.handleAPIResponse(data: data, error: error, errorData: any, successBlock: successBlock, failure: failure, finished: finished)
+        }
+    }
     
     private func handleInvalidParams(failure : @escaping failureBlock , finished : @escaping finishedBlock) {
         failure(getInvalidParamsError(),nil)
