@@ -53,10 +53,12 @@ class PostHelper: NSObject {
         self.executeRequest(method: .get, action: action, params: paramters, encoding: JSONEncoding.default, apiHeader: self.requestHeaders!, completionBlock: completionBlock)
     }
     
-    func PUT(action : String , paramters : [String:AnyObject]?, completionBlock : @escaping completionBlock) {
+    func PUT(action : String , paramters : [String:AnyObject] , encoding : ParameterEncoding, completionBlock : @escaping completionBlock) {
+        
         
         self.printRequest(action: action, params: paramters)
-        self.executeRequest(method: .put, action: action, params: paramters, encoding: JSONEncoding.default, apiHeader: self.requestHeaders!, completionBlock: completionBlock)
+        self.executeRequest(method: .post, action: action, params: paramters, encoding: encoding, apiHeader: self.requestHeaders!, completionBlock: completionBlock)
+        
     }
     
     
